@@ -1,3 +1,7 @@
+##slurm logs
+*/out/*
+*/slurm/*
+
 # Compiled source #
 ###################
 *.com
