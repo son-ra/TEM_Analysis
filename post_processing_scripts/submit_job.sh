@@ -8,7 +8,7 @@
 
 # setting standard output
 #SBATCH -o out/output_%j.txt
-#SBATCH -p bmh
+#SBATCH -p bmm
 
 #SBATCH --nodes=1
 #SBATCH --mem=100G
