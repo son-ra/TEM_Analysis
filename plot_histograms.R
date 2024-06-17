@@ -1,0 +1,27 @@
+hist(model_data$VEGC)
+hist(testing_data$VEGC)
+hist(model_data$VEGC_ratio, breaks = 40)
+hist(model_data$NPP, breaks = 40)
+hist(model_data$LAI_ratio, breaks = 40)
+hist(model_data$VSM_ratio, breaks = 40)
+hist(model_data$NETNMIN_ratio, breaks = 40)
+hist(model_data$AVAILN_ratio, breaks = 40)
+hist(model_data$VEGC_base)
+hist(model_data$SOILORGC)
+hist(model_data$AVAILN, breaks = 40) ###outliers
+hist(model_data$GPP)
+hist(model_data$LAI)
+hist(model_data$NCE, breaks=40)
+hist(model_data$NEP)
+hist(model_data$NETNMIN, breaks=40)##outliers
+hist(model_data$NPP)
+hist(model_data$VEGINNPP)
+hist(model_data$VSM)
+
+# Create a histogram of the monthly_mean_ratio column with 40 bins
+hist(model_data$monthly_mean_ratio, breaks=40, main="Histogram of Monthly Mean Ratio", xlab="Monthly Mean Ratio")
+hist(model_data$tswrf_v11_ratio, breaks=40, main="Histogram of Monthly Mean Ratio", xlab="Monthly Mean Ratio")
+hist(model_data$tmp_ratio, breaks=40, main="Histogram of Monthly Mean Ratio", xlab="Monthly Mean Ratio")
+hist(model_data$precip_ratio, breaks=40, main="Histogram of Monthly Mean Ratio", xlab="Monthly Mean Ratio")
+hist(model_data$dtr_ratio, breaks=40, main="Histogram of Monthly Mean Ratio", xlab="Monthly Mean Ratio")
+hist(model_data$vpr_ratio, breaks=40, main="Histogram of Monthly Mean Ratio", xlab="Monthly Mean Ratio")

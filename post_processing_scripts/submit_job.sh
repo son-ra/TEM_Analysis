@@ -8,10 +8,10 @@
 
 # setting standard output
 #SBATCH -o out/output_%j.txt
-#SBATCH -p bmm
+#SBATCH -p med2
 
 #SBATCH --nodes=1
-#SBATCH --mem=100G
+#SBATCH --mem=20G
 
 # setting the max time
 #SBATCH -t 25:00:00
@@ -26,8 +26,10 @@
 cd ${SLURM_SUBMIT_DIR}
 
 region=$1
+echo $region
 # var=$2
+# srun /home/smmrrr/miniconda3/envs/condaforge/bin/python3.10 cru_historical_summary.py $region
+# srun /home/smmrrr/miniconda3/envs/condaforge/bin/python3.10 future_runs.py $region
+srun /home/smmrrr/miniconda3/envs/condaforge/bin/python3.10 whole_time_period_run.py $region
 
-srun /home/smmrrr/miniconda3/envs/condaforge/bin/python3.10 cru_historical_summary.py $region
-# srun /home/smmrrr/miniconda3/envs/condaforge/bin/python3.10 post_equil_summary.py $region $var
 

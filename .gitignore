@@ -1,7 +1,8 @@
 ##slurm logs
 */out/*
 */slurm/*
-
+*.RDS
+*.rda
 # Compiled source #
 ###################
 *.com

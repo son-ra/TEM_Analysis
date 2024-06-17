@@ -95,9 +95,9 @@ print(region)
 
 
 
-ensemble_dir = '/group/moniergrp/TEM_Large_Ensemble/run_support_files/cru_regions/'
+ensemble_dir = '/group/moniergrp/TEM_Large_Ensemble/run_support_files/cru_w_ssp245/'
 
-output_dir_path = '/group/moniergrp/TEM_Large_Ensemble/output_files/cru_historical/' 
+output_dir_path = '/group/moniergrp/TEM_Large_Ensemble/output_files/cru_ensemble_historical/' 
 intervals_standage = np.concatenate((np.arange(-1, 100, 5),np.array([124, 149, 3000])))
 
 
@@ -190,11 +190,11 @@ for file in files:
         all_region = pd.concat([all_region, data])
 
 ### save after region
-all_region_stand_age.to_csv(output_dir_path+region+'/lat_lon_year_standage_var_hist.csv', index=False,float_format='%.2f')
-all_region.to_csv(output_dir_path+region+'/lat_lon_year_var_hist.csv', index=False,float_format='%.2f')
+all_region_stand_age.to_csv(output_dir_path+region+'_lat_lon_year_standage_var_hist.csv', index=False,float_format='%.2f')
+all_region.to_csv(output_dir_path+region+'_lat_lon_year_var_hist.csv', index=False,float_format='%.2f')
 all_region['run_region'] = region
 
-all_region_area = all_region.groupby(
+all_region_area = all_region.loc[all_region['year']>=1950].groupby(
     ['lon','lat','variable','forest_type','current_veg','community_type','silt_clay','region','run_region']
 )[all_region.columns[all_region.columns.str.contains('weight|area')]
 ].sum()
@@ -216,7 +216,7 @@ all_region_area['Dec'] = (all_region_area['Dec_weight']/ all_region_area['cohort
 ##summarize by lat, lon, var
 all_region_area = all_region_area.reset_index()
 
-all_region_area.to_csv(output_dir_path+region+'/lat_lon_hist.csv', index=False,float_format='%.2f')
+all_region_area.to_csv(output_dir_path+region+'_lat_lon_hist.csv', index=False,float_format='%.2f')
 
 
 all_region_year = all_region.groupby(
@@ -241,5 +241,5 @@ all_region_year['Dec'] = (all_region_year['Dec_weight']/ all_region_year['cohort
 ##summarize by lat, lon, var
 all_region_year = all_region_year.reset_index()
 
-all_region_year.to_csv(output_dir_path+region+'/year_hist.csv', index=False,float_format='%.2f')
+all_region_year.to_csv(output_dir_path+region+'_year_hist.csv', index=False,float_format='%.2f')
 
